@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Counter</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+        
+        function App() {
+            // react hook
+            // https://youtu.be/jrBhi8wbzPw?t=4117
+            const [count, setCount] = React.useState(0);
+            // arg of useState will be the initial value = 0, since we start counting at 0
+            // useState func returns array of two things a variable and a function
+            // function allows you to set value for the state if ever needed to change the state in the future
+            // setCount is the function 
+
+            function updateCount(){
+                // count+=1 is not possible in react
+                // in react whenever we use "useState" we have to use the function
+                // when we want to change the state
+
+                // therefore we use
+                setCount(count+1);
+            }
+            
+            return (
+                // COUNT IS A STATE VARIABLE
+                // https://youtu.be/jrBhi8wbzPw?t=4333
+                <div>
+                    <div>{count}</div>
+                    <button onClick={updateCount}>Count</button>
+                    {/* C is capital here unlik in JS
+                    IT IS COMMON REACT CONVENTION */}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.querySelector("#app"));
+        // ReactDOM.render(<react_component />, where on the page do you want to render it);
+    </script>
+</body>
+
+</html>

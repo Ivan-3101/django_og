@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+
+    <style>
+        
+        /* @keyframes grow {
+            /* allows to specif keyframes  */
+            /* meaning where should the element
+             start what should its style properties be 
+             and same for the end*/
+
+            /*what should the initial properties be */
+            /* from{
+                font-size: 20px;
+            }
+            to{
+                right: 100px;
+            } */
+        /*} */
+        @keyframes move {
+            0%{
+                left: 0%;
+            }
+            50%{
+                left: 50%;
+            }
+            100%{
+                left: 0%;
+            }
+        }
+
+        h1 {
+            /* relative enables us to set the t,r,b,left properties */
+            position: relative;
+
+            /* what the animation name is going to be */
+            /* animation-name: grow; */
+            animation-name: move;
+            animation-duration: 2s;
+            /* direction the animation should move in */
+            animation-fill-mode: forwards;
+        
+             /* to do the animation multiple times */
+             /* animation-iteration-count: 2;     */
+             animation-iteration-count: infinite;    
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            const h1 = document.querySelector('h1');
+            
+            // this property decides the animation to play or pause
+            h1.style.animationPlayState = 'paused';
+
+            document.querySelector('button').onclick = () =>{ 
+                if (h1.style.animationPlayState==='paused'){
+                    h1.style.animationPlayState='running';
+                }
+                else{
+                h1.style.animationPlayState='paused';
+
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <button>Click Here!</button>
+    <h1>Welcome!</h1>
+</body>
+
+</html>
