@@ -1,0 +1,14 @@
+{% extends "users/layout.html" %}
+
+{% block body %}
+    <!-- And it turns out inside of Django templates, I have access to the request that was used to make this HTTP request, which
+    means I also have access to request.user who is the user associated with that request. -->
+    <h1>Welcome, {{ request.user.first_name }}</h1>
+
+    <ul>
+        <li>Username : {{request.user.username}}</li>
+        <li>Email: {{request.user.email}}</li>
+    </ul>
+
+    <a href="{% url 'logout' %}">Log Out</a>
+{% endblock %}
